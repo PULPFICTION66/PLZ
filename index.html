@@ -104,40 +104,13 @@
     <div class="container">
       <p>本頁資料儲存在瀏覽器本機端</p>
     </div>
-  </footer>
 
   <script src="./app.js" defer></script
                                  <script type="module">
-  // 1. 引入 Firebase 核心與資料庫功能
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-  // 2. 你的專屬配置 (就是你剛才貼給我的那段)
-  const firebaseConfig = {
-    apiKey: "AIzaSyDNwHSeDoksnl7owO3LBz872PP5HtsyOsI",
-    authDomain: "zzzzz-a88e3.firebaseapp.com",
-    projectId: "zzzzz-a88e3",
-    storageBucket: "zzzzz-a88e3.firebasestorage.app",
-    messagingSenderId: "986593124142",
-    appId: "1:986593124142:web:027f79bcdf64af3e2464bf",
-    measurementId: "G-3FNMPK73BY"
-  };
-
-  // 3. 初始化 Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const postsCol = collection(db, "posts");
-
-  // 為了讓下方的 script 或是外部 js 也能用到 db，我們把它掛在 window
-  window.db = db;
-  window.postsCol = postsCol;
-  
-  console.log("Firebase 連結成功！");
-</script>
-
-<script src="app.js" type="module"></script>
+ 
   
 </body>
 </html>
+
 
 
