@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>電子佈告欄</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">電子佈告欄</h1>
+      <div class="header-actions">
+        <button id="importDemoBtn" class="btn ghost">載入示例資料</button>
+        <button id="clearAllBtn" class="btn danger ghost">清空</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="composer card">
+      <h2 class="section-title">新增公告</h2>
+      <form id="postForm" class="grid">
+        <div class="field">
+          <label for="title">標題</label>
+          <input id="title" name="title" type="text" placeholder="輸入標題" required maxlength="80">
+        </div>
+        <div class="field">
+          <label for="category">分類</label>
+          <select id="category" name="category" required>
+            <option value="公告">公告</option>
+            <option value="活動">活動</option>
+            <option value="維護">維護</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+        <div class="field span-2">
+          <label for="content">內容</label>
+          <textarea id="content" name="content" rows="4" placeholder="輸入內容" required maxlength="1000"></textarea>
+        </div>
+        <div class="field">
+          <label for="image">圖片網址（選填）</label>
+          <input id="image" name="image" type="url" placeholder="https://example.com/banner.png">
+        </div>
+        <div class="field align-end">
+          <button class="btn primary" type="submit">發布</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="toolbar card">
+      <h2 class="section-title">瀏覽公告</h2>
+      <div class="filters">
+        <input id="searchInput" type="search" placeholder="搜尋標題或內容">
+        <select id="filterCategory">
+          <option value="全部">全部分類</option>
+          <option value="公告">公告</option>
+          <option value="活動">活動</option>
+          <option value="維護">維護</option>
+          <option value="其他">其他</option>
+        </select>
+        <select id="sortOrder">
+          <option value="newest">最新優先</option>
+          <option value="oldest">最舊優先</option>
+        </select>
+        <button id="resetFiltersBtn" class="btn ghost">重置</button>
+      </div>
+    </section>
+
+    <section id="postsSection" class="posts">
+      <div id="emptyState" class="empty hidden">目前沒有公告</div>
+      <ul id="postsList" class="post-list"></ul>
+    </section>
+  </main>
+
+  <template id="postTemplate">
+    <li class="post card">
+      <div class="post-header">
+        <div class="post-title-wrap">
+          <span class="pin-badge hidden">已置頂</span>
+          <h3 class="post-title"></h3>
+        </div>
+        <div class="post-meta">
+          <span class="post-category"></span>
+          <span class="dot">•</span>
+          <time class="post-time"></time>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-content"></p>
+        <img class="post-image hidden" alt="">
+      </div>
+      <div class="post-actions">
+        <button class="btn small" data-action="togglePin">置頂/取消</button>
+        <button class="btn small danger" data-action="delete">刪除</button>
+      </div>
+    </li>
+  </template>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>本頁資料儲存在瀏覽器本機端</p>
+    </div>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
+
